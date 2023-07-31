@@ -2,26 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer components {
+  body {
+    @apply bg-stone-200 text-gray-500;
   }
-}
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold bg-gray-200 text-gray-600;
+  }
+
+  .btn {
+    @apply inline-flex !text-xs items-center px-4 py-2 border border-transparent rounded-md font-semibold uppercase tracking-widest focus:outline-none focus:ring-1 focus:ring-offset-2 transition ease-in-out duration-150 bg-gray-200  hover:bg-gray-400 focus:bg-gray-400 active:bg-gray-100 focus:ring-gray-400;
+  }
+
+  .btn-primary {
+    @apply btn bg-emerald-600 text-white hover:bg-emerald-800 focus:bg-emerald-800 active:bg-emerald-100 focus:ring-emerald-800;
+  }
+
+  .btn-outline-primary {
+    @apply btn bg-transparent border-emerald-600 text-emerald-600 hover:bg-emerald-600 hover:text-white focus:hover:bg-emerald-600 focus:bg-transparent active:bg-emerald-100 focus:ring-emerald-600;
+  }
+
+  .btn-danger {
+    @apply btn bg-red-600 text-white hover:bg-red-800 focus:bg-red-800 active:bg-red-100 focus:ring-red-800;
+  }
+
+  .badge-success {
+    @apply badge bg-green-200 text-green-600;
+  }
 }
