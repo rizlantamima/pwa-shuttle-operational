@@ -3,6 +3,7 @@ import { api } from "../configurations/api";
 import { AxiosError, ResponseError422 } from "../types/error-response";
 import { isResponseError422 } from "../utils/error";
 import axios from "axios";
+import { AuthResponse } from "../types/auth-response";
 
 type UserData = {
   // Define the shape of user data based on your backend response
@@ -20,20 +21,15 @@ const useAuth = () => {
     setError("");
     try {
       setLoading(true);
-      const response = await api.post<{ token: string }>("/api/login", {
+      const response = await api.post<AuthResponse>("/api/login", {
         email,
         password,
       });
-      const { token } = response.data;
+      const { token } = response.data.data;
       localStorage.setItem("token", token);
       setAuthenticated(true);
     } catch (error) {
       if (axios.isAxiosError(error)) {
-        console.log(
-          "setError(error.response?.data?.message)",
-          error.response?.data?.message
-        );
-
         setError(error.response?.data?.message);
       }
 

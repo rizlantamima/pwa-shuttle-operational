@@ -19,7 +19,7 @@ const AppDrawer: React.FC<DrawerProps> = ({ children, isOpen, setIsOpen }) => {
     >
       <section
         className={
-          " w-screen max-w-lg absolute bg-white h-full shadow-xl delay-400 duration-500 ease-in-out transition-all transform  " +
+          " w-screen overflow-y-auto overflow-x-hidden max-w-lg absolute bg-white h-full shadow-xl delay-400 duration-500 ease-in-out transition-all transform  " +
           (isOpen ? " translate-x-0" : "-translate-x-full ")
         }
       >

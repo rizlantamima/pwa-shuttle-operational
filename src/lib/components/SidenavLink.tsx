@@ -10,16 +10,18 @@ type SidenavLinkProps = {
 const SidenavLink = (props: SidenavLinkProps) => {
   const { href, isActive, icon, label } = props;
   return (
-    <Link
-      href={href}
-      className={`flex items-center py-2 px-5 rounded hover:text-gray-800 transition ${
-        isActive ? "bg-cyan-500text-cyan-500" : ""
-      }`}
-    >
-      {icon}
+    <li>
+      <Link
+        href={href}
+        className={`flex items-center py-2 px-5 rounded hover:text-gray-800 ${
+          isActive ? "bg-emerald-700 text-white" : ""
+        }`}
+      >
+        {icon}
 
-      <span className="ml-2">{label}</span>
-    </Link>
+        <span className="ml-2">{label}</span>
+      </Link>
+    </li>
   );
 };
 

@@ -1,14 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import TextInput from "./TextInput";
 import useAuth from "../hooks/useAuth";
 import CircularSpinner from "./CircularSpinner";
 import AlertError from "./AlertError";
 import { useRouter } from "next/navigation";
 
-export default function LoginForm() {
+type LoginFormProps = {
+  // onSuccess: Function;
+};
+export default function LoginForm(props: LoginFormProps) {
   const router = useRouter();
 
   const [email, setEmail] = useState("");
@@ -24,9 +27,11 @@ export default function LoginForm() {
     login(email, password);
   };
 
-  if (authenticated) {
-    router.replace("./app");
-  }
+  useEffect(() => {
+    if (authenticated) {
+      router.replace("./app");
+    }
+  }, [authenticated, router]);
   return (
     <>
       <div className="mb-2">
