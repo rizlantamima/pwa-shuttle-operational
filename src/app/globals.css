@@ -8,7 +8,7 @@
   }
 
   .badge {
-    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold bg-gray-200 text-gray-600;
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-gray-200 text-gray-600;
   }
 
   .btn {
@@ -29,5 +29,37 @@
 
   .badge-success {
     @apply badge bg-green-200 text-green-600;
+  }
+
+  .badge-danger {
+    @apply badge bg-red-200 text-red-600;
+  }
+
+  table {
+    @apply w-full table-auto;
+  }
+
+  table > thead {
+    @apply border-b leading-tight text-left text-sm;
+  }
+
+  table > thead > tr > th {
+    @apply p-2;
+  }
+
+  table > tbody > tr:nth-child(odd) {
+    @apply bg-transparent;
+  }
+
+  table > tbody > tr:nth-child(even) {
+    @apply bg-slate-100;
+  }
+
+  table > tbody > tr > td {
+    @apply border-b p-2 text-sm;
+  }
+
+  table > tfoot > tr > td {
+    @apply py-2;
   }
 }

@@ -16,11 +16,11 @@ export default function RootLayout({
     <>
       <AppNavigation />
       <div className="min-h-screen flex">
-        <div className="hidden lg:block fixed lg:static lg:translate-x-0 flex-col w-6/12 md:w-4/12 lg:w-3/12  transition duration-150 ease-in">
+        <div className="hidden lg:block fixed lg:static lg:translate-x-0 flex-col lg:w-2/12  transition duration-150 ease-in">
           <Sidebar />
         </div>
         <div className="lg:my-4 p-4 grow lg:rounded-l-3xl bg-white">
-          {children}
+          <main className="max-w-7xl mx-auto sm:px-6 lg:px-8">{children}</main>
         </div>
       </div>
     </>

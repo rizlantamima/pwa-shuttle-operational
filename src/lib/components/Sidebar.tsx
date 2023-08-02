@@ -2,18 +2,18 @@
 import { usePathname } from "next/navigation";
 import ApplicationLogo from "./ApplicationLogo";
 import SidenavLink from "./SidenavLink";
-
 import {
-  FcAutomotive,
-  FcCalendar,
-  FcConferenceCall,
-  FcHome,
-  FcReadingEbook,
-  FcShipped,
-  FcStatistics,
-  FcTodoList,
-  FcUnlock,
-} from "react-icons/fc";
+  CalendarDaysIcon,
+  UserGroupIcon,
+  TagIcon,
+  UserIcon,
+} from "@heroicons/react/24/solid";
+import {
+  HomeIcon,
+  ShoppingBagIcon,
+  WrenchIcon,
+  BoltIcon,
+} from "@heroicons/react/24/outline";
 
 export default function Sidebar(props: React.HTMLProps<HTMLDivElement>) {
   const pathname = usePathname();
@@ -26,7 +26,7 @@ export default function Sidebar(props: React.HTMLProps<HTMLDivElement>) {
         {
           href: "#",
           label: "Upcoming Order",
-          icon: <FcTodoList className="w-6 h-6" />,
+          icon: <TagIcon className="w-6 h-6" />,
         },
       ],
     },
@@ -36,17 +36,17 @@ export default function Sidebar(props: React.HTMLProps<HTMLDivElement>) {
         {
           href: "/app",
           label: "Home",
-          icon: <FcHome className="w-6 h-6" />,
+          icon: <HomeIcon className="w-6 h-6" />,
         },
         {
           href: "/app/order",
           label: "Order",
-          icon: <FcStatistics className="w-6 h-6" />,
+          icon: <ShoppingBagIcon className="w-6 h-6" />,
         },
         {
           href: "/app/schedule",
           label: "Schedule",
-          icon: <FcCalendar className="w-6 h-6" />,
+          icon: <CalendarDaysIcon className="w-6 h-6" />,
         },
       ],
     },
@@ -56,22 +56,22 @@ export default function Sidebar(props: React.HTMLProps<HTMLDivElement>) {
         {
           href: "/app/customers",
           label: "Customers",
-          icon: <FcConferenceCall className="w-6 h-6" />,
+          icon: <UserGroupIcon className="w-6 h-6" />,
         },
         {
           href: "/app/vehicle-types",
           label: "Vehicle Types",
-          icon: <FcAutomotive className="w-6 h-6" />,
+          icon: <WrenchIcon className="w-6 h-6" />,
         },
         {
           href: "/app/vehicles",
           label: "Vehicles",
-          icon: <FcShipped className="w-6 h-6" />,
+          icon: <BoltIcon className="w-6 h-6" />,
         },
         {
           href: "/app/users",
           label: "Users",
-          icon: <FcReadingEbook className="w-6 h-6" />,
+          icon: <UserIcon className="w-6 h-6" />,
         },
       ],
     },
@@ -107,7 +107,7 @@ export default function Sidebar(props: React.HTMLProps<HTMLDivElement>) {
         })}
 
         <div className="absolute px-4 py-2 w-full bottom-0 hover:bg-stone-50 cursor-pointer rounded-lg">
-          <FcUnlock className="w-6 h-6 inline-block" />
+          <HomeIcon className="w-6 h-6 inline-block" />
           <span className="ml-2">Log Out</span>
         </div>
       </div>
