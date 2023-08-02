@@ -30,10 +30,14 @@ const useAuth = () => {
       setAuthenticated(true);
     } catch (error) {
       if (axios.isAxiosError(error)) {
-        setError(error.response?.data?.message);
+        setError(
+          error.response ? error.response?.data?.message : error.message
+        );
+      } else if (error instanceof Error) {
+        setError(error.message);
+      } else {
+        setError("Something bad happen");
       }
-
-      console.error("Login failed:", error);
     } finally {
       setLoading(false);
     }

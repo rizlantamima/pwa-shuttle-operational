@@ -23,7 +23,6 @@ export default function LoginForm(props: LoginFormProps) {
 
   const handleSubmitForm = (e: FormEvent) => {
     e.preventDefault();
-    console.log(email, password, shouldRemember);
     login(email, password);
   };
 
@@ -86,7 +85,7 @@ export default function LoginForm(props: LoginFormProps) {
           </Link>
           <button
             disabled={loading}
-            className="ml-2 btn-primary w-18"
+            className="ml-2 btn-primary w-22"
             type="submit"
           >
             {!loading ? "Submit" : <CircularSpinner className="h-5 w-5" />}

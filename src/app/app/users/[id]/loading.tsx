@@ -1,6 +1,6 @@
 import Skeleton from "@/lib/components/Skeleton";
 
-export default function Loading() {
+export default function Loading({ params }: { params: { id: number } }) {
   return (
     <>
       <h1 className="font-semibold text-xl leading-tight">

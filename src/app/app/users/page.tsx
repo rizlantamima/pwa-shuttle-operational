@@ -1,10 +1,12 @@
 "use client";
 import Skeleton from "@/lib/components/Skeleton";
 import { api } from "@/lib/configurations/api";
-import { PaginatedData, UserData } from "@/lib/types/list-response";
+import { PaginatedData } from "@/lib/types/list-response";
+import { UserData } from "@/lib/types/user";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import useSWR from "swr";
 import PaginationLink from "@/lib/components/PaginationLink";
+import Link from "next/link";
 
 const fetcher = (url: string) => api.get<PaginatedData<UserData>>(url);
 
@@ -37,16 +39,23 @@ export default function UserList() {
 
   return (
     <>
-      <h1 className="font-semibold text-xl leading-tight">Users</h1>
+      <div className="flex justify-between">
+        <h1 className="font-semibold text-xl leading-tight">Users</h1>
+        <div>
+          <Link href={`${pathname}/add`} className="btn-primary">
+            add
+          </Link>
+        </div>
+      </div>
       <div className="mt-4">
         <table className="w-full">
           <thead>
             <tr>
-              <th>No</th>
+              <th className="hidden md:table-cell">No</th>
               <th>Name & Email</th>
-              <th>Status</th>
-              <th>Role</th>
-              <th>&nbsp;</th>
+              <th className="hidden md:table-cell">Status</th>
+              <th className="hidden md:table-cell">Role</th>
+              <th className="hidden md:table-cell">&nbsp;</th>
             </tr>
           </thead>
           <tbody>
@@ -57,20 +66,20 @@ export default function UserList() {
                   className="cursor-pointer hover:bg-emerald-50"
                   onClick={(e) => handleRowClicked(item.id)}
                 >
-                  <td>{item.row_number}</td>
+                  <td className="hidden md:table-cell">{item.row_number}</td>
                   <td>
                     <span className="font-semibold">{item.name}</span>
                     <p>{item.email}</p>
                   </td>
-                  <td>
+                  <td className="hidden md:table-cell">
                     {!item.is_blocked ? (
                       <span className="badge-success">Active</span>
                     ) : (
                       <span className="badge-danger">Blocked</span>
                     )}
                   </td>
-                  <td>{item.role}</td>
-                  <td>{item.role}</td>
+                  <td className="hidden md:table-cell">{item.role}</td>
+                  <td>{item.id}</td>
                 </tr>
               );
             })}

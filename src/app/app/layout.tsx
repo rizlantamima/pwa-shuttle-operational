@@ -20,7 +20,9 @@ export default function RootLayout({
           <Sidebar />
         </div>
         <div className="lg:my-4 p-4 grow lg:rounded-l-3xl bg-white">
-          <main className="max-w-7xl mx-auto sm:px-6 lg:px-8">{children}</main>
+          <main className="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-2">
+            {children}
+          </main>
         </div>
       </div>
     </>

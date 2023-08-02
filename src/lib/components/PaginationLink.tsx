@@ -41,7 +41,7 @@ export default function PaginationLink(props: PaginationLink) {
           Next
         </Link>
       </div>
-      <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
+      <div className="hidden md:flex md:flex-1 md:items-center md:justify-between">
         <div>
           <p className="text-sm text-gray-700">
             Showing <span className="font-medium">{from}</span> to{" "}
